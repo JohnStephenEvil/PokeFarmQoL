@@ -2338,7 +2338,7 @@ class LabPage extends Page {
         this.searchArray = $.grep(this.searchArray, function (value) {
             return value != key;
         });
-        this.settings.findCustom = this.searchArray.toString();
+        this.settings.findLabEgg = this.searchArray.toString();
 
         $(byebye).parent().remove();
 
@@ -2358,7 +2358,7 @@ class LabPage extends Page {
         this.typeArray = $.grep(this.typeArray, function (value) {
             return value != key;
         });
-        this.settings.findType = this.typeArray.toString();
+        this.settings.findLabType = this.typeArray.toString();
 
         $(byebye).parent().remove();
 
