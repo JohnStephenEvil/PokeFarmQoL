@@ -3988,7 +3988,7 @@ class ShelterPage extends Page {
             if (0 == $(a.target).closest('input, textarea').length) {
                 switch (a.keyCode) {
                 case obj.selectNextMatchKey: {
-                    const numMatches = $('#shelterarea').find('.pokemon').find('.shelterfoundme').length;
+                    const numMatches = $('#shelterarea').find('.pokemon').find('.shelterfoundme').length / 2;
 
                     // remove all existing locks
                     $('#shelterarea').find('.pokemon').removeClass('lock').removeClass('dismiss');
