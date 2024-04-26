@@ -2406,7 +2406,7 @@ class LabPage extends Page {
                 const typePokemonNames = [];
 
                 $('#egglist>div>h3').each(function () {
-                    const searchPokemon = $(this).text().split(' ')[0];
+                    const searchPokemon = $(this).text();
                     const [searchTypeOne, searchTypeTwo] = obj.getTypesForEgg(searchPokemon);
                     if (searchTypeOne === value) {
                         amountOfTypesFound.push('found');
