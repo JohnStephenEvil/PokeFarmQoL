@@ -349,7 +349,8 @@ class Globals {
         // Galar
         "Zacian","Zamazenta","Eternatus","Kubfu","Urshifu","Zarude","Regieleki","Regidrago","Glastrier","Spectrier","Calyrex",
         // Others
-        "Enamorus","Raging Bolt","Gouging Fire","Walking Wake","Iron Crown","Iron Boulder","Iron Leaves","Wo-Chien","Chien-Pao","Ting-Lu","Chi-Yu"
+        "Enamorus","Raging Bolt","Gouging Fire","Walking Wake","Iron Crown","Iron Boulder","Iron Leaves","Wo-Chien","Chien-Pao","Ting-Lu","Chi-Yu",
+        "Koraidon","Miraidon","Okidogi","Munkidori","Fezandipiti","Ogerpon","Terapagos","Pecharunt"
     ]};
 
     static TYPE_OPTIONS = Helpers.buildOptionsString(this.TYPE_LIST);
