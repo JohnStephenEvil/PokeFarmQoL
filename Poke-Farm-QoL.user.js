@@ -564,7 +564,7 @@ class Resources {
     }
 
     static qolHubLinkHTML() {
-        return `<li data-name="QoL"><a title="QoL Settings"><img src="https://i.imgur.com/L6KRli5.png" alt="QoL Settings">QoL </a><!-- The QoL hub doesn't exist until opened; store custom errors here initially instead --><ul style="display: none;" id="qolConsoleHolder"></ul></li>`;
+        return `<li data-name="QoL"><a title="QoL Settings"><img src="https://pokefarm.com/upload/:b7q/QoL/icon.png" alt="QoL Settings">QoL </a><!-- The QoL hub doesn't exist until opened; store custom errors here initially instead --><ul style="display: none;" id="qolConsoleHolder"></ul></li>`;
     }
 
     static massReleaseSelectHTML() {
@@ -1175,6 +1175,12 @@ class PFQoL {
   } // saveSettings
   populateSettingsPage(obj) { // checks all settings checkboxes that are true in the settings
     try {
+        // Deprecated: Multi-Select Controls (Move & Release) is now built into the site; force off and persist
+        const us = obj.QOLHUB.USER_SETTINGS;
+        if (us.privateFieldFeatureEnables && us.privateFieldFeatureEnables.release) {
+            us.privateFieldFeatureEnables.release = false;
+            obj.QOLHUB.saveSettings();
+        }
         obj.QOLHUB.populateSettings();
         obj.PAGES.populateSettings();
     } catch(err) {
@@ -2676,10 +2682,9 @@ class MultiuserPage extends Page {
             this.partymodHelper('qolShowShowcaseDesktop',this.settings.showShowcaseDesktop === true);
 
             // clickable compact pokemon
-            if(this.settings.showPokemon === true 
-                && this.settings.compactPokemon === true  
-                && this.settings.clickablePokemon === true ) 
-            {
+            if(this.settings.showPokemon === true
+                && this.settings.compactPokemon === true
+                && this.settings.clickablePokemon === true) {
                 $('.party .pkmn').each(function() {
                     const pkmnID = $(this.parentElement).attr('data-pid');
                     if(pkmnID) {
@@ -2816,6 +2821,11 @@ class PrivateFieldsPage extends Page {
     }
     setupHandlers() {
         const obj = this;
+        // Deprecated: Multi-Select Controls (Move & Release) is now built into the site; force off and persist
+        if (obj.USER_SETTINGS.privateFieldFeatureEnables && obj.USER_SETTINGS.privateFieldFeatureEnables.release) {
+            obj.USER_SETTINGS.privateFieldFeatureEnables.release = false;
+            LocalStorageManager.saveSettings(Globals.SETTINGS_SAVE_KEY, obj.USER_SETTINGS);
+        }
         $(window).on('load', (() => {
             obj.loadSettings();
             obj.customSearch();
