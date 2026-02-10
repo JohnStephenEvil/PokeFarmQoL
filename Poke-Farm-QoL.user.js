@@ -17,7 +17,7 @@ class Helpers {
     // Custom error handler to output in the QoL error console
     // Level should be info, warn, or error; default is info
     // Message is also written to the JavaScript console
-    // err should be the full Error object - if provided and supported, the 
+    // err should be the full Error object - if provided and supported, the
     //     stack trace for this error will be Base 64 encoded and included for the user
     static writeCustomError(message,level='info',err=undefined) {
         const logElement = document.getElementById('qolConsoleHolder');
@@ -248,7 +248,7 @@ class Helpers {
       newBtn.innerText = 'View links';
       newBtn.style= 'vertical-align:middle;margin-left: 10px;';
       newBtn.onclick = function(){
-  
+
           let content = '<h3>Pokemon links</h3><table style="border-collapse:collapse;">';
           let fieldmon = document.getElementsByClassName('fieldmon');
           for(let i=0; i<fieldmon.length; i++){
@@ -267,7 +267,7 @@ class Helpers {
           }
           }
           content += '</table>';
-  
+
           let dialog = document.createElement('div');
           let dialogDiv1 = document.createElement('div');
           let dialogDiv2 = document.createElement('div');
@@ -580,7 +580,7 @@ class Resources {
     }
 }
 
-/* 
+/*
 This is a singleton wrapper on the settings/dex classes
 It makes it easier to get the master settings instance,
 without needing to explicitly pass it around between functions
@@ -992,7 +992,7 @@ class QoLHub {
     }
     clearAllSettings() {
         LocalStorageManager.clearAllQoLKeys();
-        location.reload(); 
+        location.reload();
     }
     saveSettings() {
         LocalStorageManager.setItem(this.SETTINGS_SAVE_KEY, JSON.stringify(this.USER_SETTINGS));
@@ -1190,7 +1190,7 @@ class PFQoL {
   addIcon() { // inject the QoL icon into the icon bar
     // this is done separately from the main HTML to ensure it's always added first,
     // as there's a custom error handler that relies on it existing
-    
+
     if(document.getElementById('announcements')) {
         document.querySelector('#announcements li.spacer')
               .insertAdjacentHTML('beforebegin', Resources.qolHubLinkHTML());
@@ -3774,7 +3774,7 @@ class PublicFieldsPage extends Page {
                     for (let i = 0; i < filteredTypeArray.length; i++) {
                         if ((searchTypeOne === filteredTypeArray[i]) || (searchTypeTwo === filteredTypeArray[i])) {
                             // .parent().children() hack to make both big & small images highlighted
-                            // privateFieldsPage has the same issue: TODO: combine some of these search features, 
+                            // privateFieldsPage has the same issue: TODO: combine some of these search features,
                             // and remove this hack (put combined functions in a library of some sort)
                             // could put the class on the parent element instead, and make the css .found>img?
                             $(searchPokemonBigImg).parent().children().addClass('publicfoundme');
@@ -4459,7 +4459,7 @@ class SummaryPage extends Page {
   setupHTML() {
     const pkmnID = $('.party div')[0].getAttribute('data-pid');
     const displayAccordion = $('#displaycodelist').parent();
-    const newHTML = 
+    const newHTML =
       "<p>Display an interactive panel in Pokefarm's forums!</p>"+
       '<p class="displaycode" style="user-select:all";>[pkmnpanel='+pkmnID+']</p>'+
       '<div style="border-bottom: 1px solid;margin-top: 1rem;"></div>';
@@ -4485,7 +4485,7 @@ class WishforgePage extends Page {
         const isMobile = Helpers.detectPageSize('mq2');
         // setup table format
         let header = '<th>Type</th> <th>Level</th> <th>Gem Progress</th> <th>Item</th> <th>Upgrade</th> <th>Notify</th>';
-        let columns = 
+        let columns =
             '<col style="width: 10%;">' +
             '<col style="width: 20%;">' +
             '<col style="width: 20%;">' +
@@ -4494,7 +4494,7 @@ class WishforgePage extends Page {
             '<col style="width: 10%;">';
         if(isMobile) {
             header = '<th>Type</th> <th>Gem Progress</th> <th>Item</th>';
-            columns = 
+            columns =
                 '<col style="width: 34%;">' +
                 '<col style="width: 33%;">' +
                 '<col style="width: 33%;">';
